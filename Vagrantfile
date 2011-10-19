@@ -22,7 +22,7 @@ Vagrant::Config.run do |config|
 
   # add a hostmaster Aegir server on a shared host-only network
   config.vm.define Hm::Shortname do |hm_config|
-    hm_config.vm.network("192.168.32.10")
+    hm_config.vm.network("192.168.#{Vm::Subnet}.10")
     hm_config.vm.host_name = Hm::Hostname
     hm_config.vm.customize do |vm|
       vm.name = Hm::Vmname
@@ -41,7 +41,7 @@ Vagrant::Config.run do |config|
   # add several hostslave Aegir servers on a shared host-only network
   (1..Hs::Count).each do |index|
     config.vm.define "#{Hs:Shortname}#{index}" do |hs_config|
-      hs_config.vm.network("192.168.32.1#{index}")
+      hs_config.vm.network("192.168.#{Vm::Subnet}.1#{index}")
       hs_config.vm.host_name = "#{Hs::Hostname}#{index}"
       hs_config.vm.customize do |vm|
         vm.name = "#{Hs::Vmname} #{index}"
