@@ -30,3 +30,5 @@ Roadmap
 * Symlink /backups and /makefiles into /vagrant so they persist after 'vagrant
 destroy's.
 * Optionally install Aegir from git repos
+* Automatically create one or more platforms
+* Figure out an easy way to push/pull sites to/from remote Aegir servers
