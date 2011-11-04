@@ -4,6 +4,10 @@ group { 'puppet': ensure => present, }
 
 File { owner => 0, group => 0, mode => 0644 }
 
+include apt
+
+class {'apt::update': }
+
 class base_packages {
   package { 'git': ensure => present, }
   package { 'vim': ensure => present, }
@@ -15,11 +19,7 @@ class base_packages {
 }
 
 class { 'base_packages':
-  require => Exec['apt-update'],
-}
-
-exec { 'apt-update':
-  command => "/usr/bin/apt-get update",
+  require => Class['apt::update'],
 }
 
 file { '/root/.profile':
