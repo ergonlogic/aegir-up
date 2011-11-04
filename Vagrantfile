@@ -19,6 +19,7 @@ Vagrant::Config.run do |config|
     puppet.manifests_path = Vm::Manifests
     puppet.module_path    = Vm::Modules
     puppet.manifest_file  = Vm::Base
+    #puppet.options       = "--verbose --debug"
   end
 
   # add a hostmaster Aegir server on a shared host-only network
@@ -51,11 +52,12 @@ Vagrant::Config.run do |config|
         vm.memory_size = Hs::Memory
       end
     end
-      hs_config.vm.provision :puppet do |puppet|
-        # hm_config.vm.provision :puppet, :module_path => "modules", :options => "--verbose --debug" do |puppet|
-        puppet.manifests_path = "manifests"
-        puppet.module_path    = Vm::Modules
-        puppet.manifest_file  = "#{Hs::Shortname}.pp"
+     if File::exists?("#{Vm::Manifests}/#{Hm::Shortname}.pp")
+       hs_config.vm.provision :puppet do |puppet|
+          puppet.module_path    = Vm::Modules
+          puppet.manifest_file  = "#{Hs::Shortname}.pp"
+          #puppet.options       = "--verbose --debug"
+        end
       end
     end
   end
