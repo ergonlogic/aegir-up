@@ -6,22 +6,13 @@ file { '/etc/motd':
               Developed and maintained by Ergon Logic Enterprises.\n"
 }
 
-include apt
+include aegir #apt
 
-class {'apt::sources':
-  dir  => '/tmp/vagrant-puppet/manifests/files',
-  name => 'aegir',
-}
+class {'aegir::sources': }
 
-class {'apt::key':
-  dir => '/tmp/vagrant-puppet/manifests/files',
-  url => 'http://debian.aegirproject.org',
-  require => Class['apt::sources'],
-}
+#class {'aegir::dependencies': }
 
-class {'apt::update':
-  require => Class['apt::key'],
-}
+#class {'aegir::install': }
 
 # dependencies
 package {'drush':
