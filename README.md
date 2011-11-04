@@ -16,4 +16,17 @@ building and distributing virtualized development environments"; whereas,
 Virtualbox "is a general-purpose full virtualizer for x86 hardware, targeted at
 server, desktop and embedded use."
 
+Roadmap
+-------
 
+* Enable several Aegir modules:
+  * DNS
+  * Clone
+  * Migrate
+* Install several aegir contrib modules:
+  * Hosting Queue Runner
+  * Hosting Backup Queue
+  * Backup Queue Garbage Collection
+* Symlink /backups and /makefiles into /vagrant so they persist after 'vagrant
+destroy's.
+* Optionally install Aegir from git repos
