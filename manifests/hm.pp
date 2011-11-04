@@ -30,8 +30,10 @@ package {'drush':
 
 package {'drush-make': 
   ensure => present,
-  require => Package['drush'],
-  require => Class['apt::update'],
+  require => [
+    Package['drush'],
+    Class['apt::update'],
+  ],
 }
 
 package {'mysql-server' :
