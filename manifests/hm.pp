@@ -1,7 +1,5 @@
 # A Puppet manifest to provision an Aegir Hostmaster server
 
-import "settings.pp"
-
 file { '/etc/motd':
   content => "Welcome to your Aegir Hostmaster virtual machine!
               Built by Vagrant. Managed by Puppet.\n
