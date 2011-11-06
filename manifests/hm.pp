@@ -6,5 +6,7 @@ file { '/etc/motd':
               Developed and maintained by Ergon Logic Enterprises.\n"
 }
 
+include drush
+
 include aegir
 

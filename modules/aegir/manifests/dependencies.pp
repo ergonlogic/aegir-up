@@ -1,8 +1,6 @@
 class aegir::dependencies {
 
-  package {'drush':
-    ensure => '4.5-2~bpo60+1',
-  }
+  include drush
 
   package {'drush-make':
     ensure => present,
