@@ -3,12 +3,12 @@ class aegir::sources {
   include apt
 
   class {'apt::sources':
-    dir  => '/tmp/vagrant-puppet/manifests/files',
+    dir  => 'modules/aegir',
     name => 'aegir',
   }
 
   class {'apt::key':
-    dir => '/tmp/vagrant-puppet/manifests/files',
+    dir => 'files',
     url => 'http://debian.aegirproject.org',
     require => Class['apt::sources'],
   }
