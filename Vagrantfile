@@ -14,14 +14,6 @@ Vagrant::Config.run do |config|
     vm.memory_size = Vm::Memory
   end
 
-  # set manifests directory
-  config.vm.provision :puppet do |puppet|
-    puppet.manifests_path = Vm::Manifests
-    puppet.module_path    = Vm::Modules
-    puppet.manifest_file  = Vm::Base
-    #puppet.options       = "--verbose --debug"
-  end
-
   # add a hostmaster Aegir server on a shared host-only network
   config.vm.define Hm::Shortname do |hm_config|
     hm_config.vm.network("192.168.#{Vm::Subnet}.10")

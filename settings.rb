@@ -5,7 +5,6 @@ class Vm                            # default virtual machine settings
   Memory    = 512                   # default VM memory
   Manifests = "manifests"           # puppet manifests folder name
   Modules   = "modules"             # puppet modules folder name
-  Base      = "base.pp"             # default puppet manifest
   Subnet    = "32"                  # 192.168.###.0/24 subnet for this network
 end
 
