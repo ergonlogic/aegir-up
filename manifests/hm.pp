@@ -10,10 +10,14 @@ include aegir
 
 include drush
 
-class {'drush::status':
-  site_alias => 'hostmaster',
-  require => Class['aegir'],
-}
+#class {'drush::status':
+#  site_alias => 'hostmaster',
+#  require => Class['aegir'],
+#}
 
-#class {'aegir::contrib' :}
-class {'aegir::queue_runner' :}
+#class {'aegir::contrib': }
+#class {'aegir::queue_runner': }
+
+aegir::platform {'test':
+  makefile => '/var/aegir/makefiles/core-drupal.make',
+  }
