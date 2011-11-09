@@ -6,7 +6,19 @@ file { '/etc/motd':
               Developed and maintained by Ergon Logic Enterprises.\n"
 }
 
+include aegir
+
 include drush
 
-include aegir
+class {'drush::status':
+  site_alias => 'hostmaster',
+  require => Class['aegir'],
+}
+
+class {'drush::dl':
+  site_alias => '@hostmaster',
+  module => 'hosting_queue_runner',
+  cwd => "/var/aegir/hostmaster-6.x-1.5/sites/aegir.local",
+  require => Class['aegir'],
+}
 
