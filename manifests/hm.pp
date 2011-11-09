@@ -42,8 +42,15 @@ drush::en { ['hosting_queue_runner',
              #'hosting_advanced_cron',
              #'hosting_notifications',
              #'provision_boost',
-             #'sitedir_migrate',
+             'sitedir_migrate',
             ]:
+  site_alias => '@hostmaster',
+  cwd => "/var/aegir/hostmaster-6.x-1.5/sites/aegir.local",
+  require => Class['aegir'],
+}
+
+drush::dis { ['sitedir_migrate',
+             ]:
   site_alias => '@hostmaster',
   cwd => "/var/aegir/hostmaster-6.x-1.5/sites/aegir.local",
   require => Class['aegir'],

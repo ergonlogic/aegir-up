@@ -1,6 +1,6 @@
 define drush::dis ($site_alias = "", $cwd = "/var/aegir") {
 
-  exec {"drush-en-${name}":
+  exec {"drush-dis-${name}":
     path => '/usr/bin:/bin',
     user  => 'aegir',
     group => 'aegir',
