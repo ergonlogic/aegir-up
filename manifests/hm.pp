@@ -15,9 +15,9 @@ include drush
 #  require => Class['aegir'],
 #}
 
-#class {'aegir::contrib': }
-#class {'aegir::queue_runner': }
+class {'aegir::contrib': }
+class {'aegir::queue_runner': }
 
-aegir::platform {'test':
-  makefile => '/var/aegir/makefiles/core-drupal.make',
-  }
+aegir::platform {'Open_Atrium':
+  makefile => 'http://drupalcode.org/sandbox/ergonlogic/1237618.git/blob_plain/HEAD:/stub-openatrium.make',
+}

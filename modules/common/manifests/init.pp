@@ -1,0 +1,5 @@
+class common {
+
+  #include replace
+
+}
