@@ -28,7 +28,9 @@ Vagrant::Config.run do |config|
       hm_config.vm.provision :puppet do |puppet|
         puppet.manifest_file = "#{Hm::Shortname}.pp"
         puppet.module_path   = Vm::Modules
-        #puppet.options       = "--verbose --debug"
+        if defined?(Vm::Options)
+          puppet.options       = Vm::Options
+        end
       end
     end
   end
@@ -48,7 +50,9 @@ Vagrant::Config.run do |config|
        hs_config.vm.provision :puppet do |puppet|
           puppet.module_path    = Vm::Modules
           puppet.manifest_file  = "#{Hs::Shortname}.pp"
-          #puppet.options       = "--verbose --debug"
+          if defined?(Vm::Options)
+            puppet.options       = Vm::Options
+          end
         end
       end
     end
