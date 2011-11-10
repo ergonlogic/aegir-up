@@ -11,7 +11,7 @@ class aegir::queue_runner {
   drush::en { 'hosting_queue_runner':
     site_alias => '@hostmaster',
     cwd        => "/var/aegir/hostmaster-6.x-1.5/sites/aegir.local",
-    require    => Drush::Dl["hosting_queue_runner",
+    require    => Drush::Dl["hosting_queue_runner"],
   }
 
   exec {"cp-script":

@@ -1,5 +1,3 @@
 class common {
 
-  #include replace
-
 }

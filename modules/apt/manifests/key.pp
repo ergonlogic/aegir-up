@@ -2,7 +2,7 @@ class apt::key ($dir, $url) {
 
   exec {'get key':
     command => "/usr/bin/wget -nc -P ${dir} ${url}/key.asc",
-    unless => "/bin/ls ${dir}| /bin/grep 'key.asc'",
+    unless  => "/bin/ls ${dir}| /bin/grep 'key.asc'",
   }
 
   exec {'add key':
