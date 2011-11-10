@@ -4,20 +4,18 @@ class aegir::queue_runner {
 
   drush::dl { 'hosting_queue_runner':
     site_alias => '@hostmaster',
-    cwd => "/var/aegir/hostmaster-6.x-1.5/sites/aegir.local",
-    require => Class['aegir'],
+    cwd        => "/var/aegir/hostmaster-6.x-1.5/sites/aegir.local",
+    require    => Class['aegir'],
   }
 
   drush::en { 'hosting_queue_runner':
     site_alias => '@hostmaster',
-    cwd => "/var/aegir/hostmaster-6.x-1.5/sites/aegir.local",
-    require => [ Class['aegir'],
-                 Drush::Dl["hosting_queue_runner"],
-               ],
+    cwd        => "/var/aegir/hostmaster-6.x-1.5/sites/aegir.local",
+    require    => Drush::Dl["hosting_queue_runner",
   }
 
   exec {"cp-script":
-    path => '/usr/bin:/bin',
+    path    => '/usr/bin:/bin',
     command => "cp /var/aegir/hostmaster-6.x-1.5/sites/aegir.local/modules/hosting_queue_runner/init.d.example /etc/init.d/hosting-queue-runner",
     require => Drush::Dl["hosting_queue_runner"],
   }
@@ -28,7 +26,7 @@ class aegir::queue_runner {
   }
 
   exec {"run-script":
-    path => '/usr/bin:/bin',
+    path    => '/usr/bin:/bin',
     command => "/etc/init.d/hosting-queue-runner start",
     require => Exec["symlinks-runlevels"],
   }

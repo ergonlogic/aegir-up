@@ -7,6 +7,7 @@ define drush::make ($makefile, $options="", $platforms_dir="/var/aegir/platforms
     command     => "drush make '${makefile}' ${platforms_dir}/${name} -y ${options} >> /var/aegir/drush.log 2>&1",
     creates     => "${platforms_dir}/${name}",
     environment => "HOME=/var/aegir",
+    require     => Class['drush'],
   }
                           
 }
