@@ -1,5 +1,8 @@
 class aegir {
 
+include aegir::dependencies
+include aegir::sources
+
   package { 'aegir':
     ensure       => present,
     responsefile => 'files/aegir.preseed',
@@ -21,7 +24,7 @@ class aegir::sources {
     dir     => 'files',
     url     => 'http://debian.aegirproject.org',
     require => Class['apt::sources'],
-    creates => 'files/key.asc',
+#    creates => 'files/key.asc',
   }
 
   class {'apt::update':
