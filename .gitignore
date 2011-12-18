@@ -1,2 +1,4 @@
 manifests/files/key.asc
 .vagrant
+*.box
+iso/
