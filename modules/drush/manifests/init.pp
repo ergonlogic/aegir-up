@@ -3,7 +3,7 @@ class drush {
   include drush::preferences
 
   package { 'drush':
-    ensure  => present,
+    ensure  => latest,
     require => [
       Class['drush::preferences'],
     ],
@@ -13,9 +13,15 @@ class drush {
 
 class drush::preferences {
 
-  file {'/etc/apt/preferences.d/drush':
+  apt::sources {'drush.list':
+    dir  => '/tmp/vagrant-puppet/modules-0/drush/files',
+    name => 'drush',
+  }
+
+
+  file {'/etc/apt/preferences.d/drush.pref':
     ensure => present,
-    source => "modules/drush/drush",
+    source => "/tmp/vagrant-puppet/modules-0/drush/files/drush.pref",
   }
 
 }

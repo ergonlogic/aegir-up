@@ -1,5 +1,9 @@
 # A Puppet manifest to provision an Aegir Hostmaster server
 
+group { 'puppet': ensure => present, }
+
+File { owner => 0, group => 0, mode => 0644 }
+
 file { '/etc/motd':
   content => "Welcome to your Aegir Hostmaster virtual machine!
               Built by Vagrant. Managed by Puppet.\n
@@ -18,6 +22,6 @@ include drush
 #class {'aegir::contrib': }
 #class {'aegir::queue_runner': }
 
-aegir::platform {'Open_Atrium22':
-  makefile => 'http://drupalcode.org/sandbox/ergonlogic/1237618.git/blob_plain/HEAD:/stub-openatrium.make',
-}
+#aegir::platform {'Open_Atrium22':
+#  makefile => 'http://drupalcode.org/sandbox/ergonlogic/1237618.git/blob_plain/HEAD:/stub-openatrium.make',
+#}

@@ -1,4 +1,4 @@
-class apt::sources ($dir, $name) {
+define apt::sources ($dir, $name) {
 
   file {"${name}.list":
     path   => "/etc/apt/sources.list.d/${name}.list",

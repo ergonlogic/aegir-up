@@ -15,15 +15,15 @@ class aegir::sources {
 
   include apt
 
-  class {'apt::sources':
-    dir  => 'modules/aegir',
+  apt::sources {'aegir.list':
+    dir  => '/tmp/vagrant-puppet/modules-0/aegir/files',
     name => 'aegir',
   }
 
   class {'apt::key':
     dir     => 'files',
     url     => 'http://debian.aegirproject.org',
-    require => Class['apt::sources'],
+    require => Apt::Sources['aegir.list'],
 #    creates => 'files/key.asc',
   }
 

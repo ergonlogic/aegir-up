@@ -1,4 +1,2 @@
-deb http://backports.debian.org/debian-backports squeeze-backports main
-
 deb http://debian.aegirproject.org/ squeeze main
 deb-src http://debian.aegirproject.org/ squeeze main
