@@ -3,6 +3,7 @@ Vagrant::Config.run do |config|
 
   # base box
   config.vm.box = Vm::Basebox
+  config.vm.box_url = Vm::Box_url
 
   # add a gui
   if Vm::Gui == 1

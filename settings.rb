@@ -1,6 +1,6 @@
 class Vm                            # default virtual machine settings
-  Basebox   = "squeeze-2011-11-06"  # default basebox
-  Box_url   = ""                    # URL from which to download the base box
+  Basebox   = "aegir"               # default basebox
+  Box_url   = "http://ergonlogic.com/files/boxes/aegir-current.box"                    # URL from which to download the base box
   Gui       = 0                     # start VM with GUI? Useful for loading CD/DVD ISOs
   Memory    = 512                   # default VM memory
   Manifests = "manifests"           # puppet manifests folder name
